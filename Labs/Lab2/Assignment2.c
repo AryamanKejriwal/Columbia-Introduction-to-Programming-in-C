@@ -146,8 +146,8 @@ int main() {
     printf("Those are not valid dimensions\n");
   } else {
     //Draws the circle
-    for(int i = -r; i < r; i++) {
-      for(int j = -r; j < r; j++) {
+    for(int i = -r; i <= r; i++) {
+      for(int j = -r; j <= r; j++) {
         if((i * i) + (j * j) < (r * r)) {
           printf("*");
         } else {
