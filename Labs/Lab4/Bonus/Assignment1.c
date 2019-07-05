@@ -41,6 +41,8 @@ int main() {
 
   printf("Thre are %d odd digits and %d even digits in %d.\n", odd, even, n);
 
+  return(0);
+
 }
 
 //Precondition:  n is a number and index <= the number of digits in n
