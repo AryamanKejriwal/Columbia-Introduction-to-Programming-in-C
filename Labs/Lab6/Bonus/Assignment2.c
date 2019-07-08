@@ -95,17 +95,9 @@ int depunctuate(char str[], int length) {
 //Precondition:  str is a string of length length, start = 0 for first call
 //Postcondition: Returns 1 if str is a palindrome and 0 if str is not a palindrome
 int is_palindrome(char str[], int length, int start) {
-  //for(int i = 0; i < length/2; i++) {
-  //  if(str[i] != str[length - i - 1]) {
-  //    return(0);
-  //  }
-  //}
-
-  //return(1);
-
-  if(start >= length/2) {
+  if(start >= length/2) { //Base Case
     return(str[start] == str[length - start - 1]);
   } else {
-    return(is_palindrome(str, length, start + 1) && (str[start] == str[length - start - 1]));
+    return(is_palindrome(str, length, start + 1) && (str[start] == str[length - start - 1])); //Recursive call
   }
 }

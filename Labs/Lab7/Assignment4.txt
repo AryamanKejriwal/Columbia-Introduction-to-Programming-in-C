@@ -1,0 +1,13 @@
+English
+father
+mother
+brother
+sister
+cousin
+apple
+dog
+ball
+balloon
+switch
+eat
+play
