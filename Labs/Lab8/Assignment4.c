@@ -37,6 +37,9 @@ int main() {
   }
 
   printf("Data successfully printed.\n");
+
+  fclose(input);
+  fclose(output);
   return(0);
 }
 
