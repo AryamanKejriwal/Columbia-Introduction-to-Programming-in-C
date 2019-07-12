@@ -34,14 +34,28 @@ double max_interest(double p, double m, double y) {
 }
 
 //Prints amortization table
-void print_table(int payment_num, double interest_paid, double principal_paid, double total_due) {
-  double rem_balance = total_due - principal_paid;
+void print_table(double principal, double i, int num_months) {
+  double monthly_payment = find_monthly_payment(i/12.0, principal, num_months / 12.0);
+  double rem_balance = principal;
+  int payment_num = 1;
 
   printf("\tPayment #\t|\tPayment\t|\tInterest Paid\t|\tPrincipal Paid\t|\tRemaining Balance\n");
   for(int i = 0; i < TABLE_WIDTH; i++) {
     printf("-");
   }
-  printf("\n");
 
-  printf("\t%d\t\t|\t%.2lf\t|\t%.2lf\t\t|\t%.2lf\t\t|\t%.2lf\n", payment_num, total_due, interest_paid, principal_paid, rem_balance);
+  printf("\n");
+  for(int j = 0; j < num_months; j++) {
+    double interest = (i * rem_balance)/12.0;
+    double principal_paid = monthly_payment - interest;
+    rem_balance = rem_balance - monthly_payment;
+    if(j == num_months - 1) {
+      principal_paid = principal_paid + rem_balance;
+      monthly_payment = monthly_payment + rem_balance;
+      rem_balance = 0;
+    }
+    printf("\t%d\t\t|\t%.2lf\t|\t%.2lf\t\t|\t%.2lf\t\t|\t%.2lf\n", payment_num, monthly_payment, interest, principal_paid, rem_balance);
+    payment_num++;
+  }
+  printf("\n");
 }

@@ -17,4 +17,4 @@ extern double max_principal(double i, double m, double y);
 extern double max_interest(double p, double m, double y);
 
 //Prints amortization table
-extern void print_table(int payment_num, double interest_paid, double principal_paid, double total_due);
+extern void print_table(double principal, double i, int num_months);
